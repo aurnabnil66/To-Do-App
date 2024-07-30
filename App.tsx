@@ -1,21 +1,20 @@
 import {NavigationContainer} from '@react-navigation/native';
 import StackNavigator from './src/app/Navigators/StackNavigator';
-import React, {useEffect} from 'react';
-import LottieSplashScreen from 'react-native-lottie-splash-screen';
+import React, {useEffect, useState} from 'react';
+import SplashScreen from './src/app/Screens/SplashScreen/SplashScreen';
 
 function App() {
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      LottieSplashScreen.hide(); // Hide the splash screen after 2.7 seconds
-    }, 2700);
+  const [isLoading, setIsLoading] = useState(true);
 
-    // Cleanup the timer if the component is unmounted
-    return () => clearTimeout(timer);
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
   }, []);
 
   return (
     <NavigationContainer>
-      <StackNavigator />
+      {isLoading ? <SplashScreen /> : <StackNavigator />}
     </NavigationContainer>
   );
 }

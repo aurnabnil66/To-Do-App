@@ -5,12 +5,8 @@ const Stack = createNativeStackNavigator();
 
 export default function StackNavigator() {
   return (
-    <Stack.Navigator>
-      <Stack.Screen
-        name="StartScreen"
-        component={StartScreen}
-        options={{headerShown: false}}
-      />
+    <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Screen name="StartScreen" component={StartScreen} />
     </Stack.Navigator>
   );
 }
