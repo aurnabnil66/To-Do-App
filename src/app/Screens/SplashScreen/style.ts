@@ -17,19 +17,16 @@ const styles = StyleSheet.create({
     bottom: verticalScale(30)
   },
   appTypeText: {
-    color: '#FFFFFF',
+    color: '#6C63FF',
     fontSize: moderateScale(18),
     fontWeight: '600',
-    fontFamily: 'Work Sans',
     textAlign: 'center'
   },
   appDeveloperNameText: {
-    color: '#FFFFFF',
     fontSize: moderateScale(14),
     fontWeight: '500',
-    fontFamily: 'Work Sans',
     textAlign: 'center'
-  }
+  },
 });
 
 export default styles;

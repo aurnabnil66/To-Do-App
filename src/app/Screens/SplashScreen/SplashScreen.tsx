@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, View, Text} from 'react-native';
+import {SafeAreaView, View, Text, useColorScheme} from 'react-native';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
@@ -17,6 +17,12 @@ const easing = Easing.bezier(0.25, -0.5, 0.25, 1);
 export default function SplashScreen() {
   const sv = useSharedValue(0);
   const scale = useSharedValue(1);
+  const colorScheme = useColorScheme();
+
+  const lightModeTextColor = '#000';
+  const darkModeTextColor = '#fff';
+  const textColor =
+    colorScheme === 'dark' ? darkModeTextColor : lightModeTextColor;
 
   const scaleStyles = useAnimatedStyle(() => ({
     transform: [{scale: scale.value}],
@@ -44,7 +50,7 @@ export default function SplashScreen() {
         <Animated.Text
           entering={FadeInUp.delay(1000)}
           exiting={FadeOut}
-          style={styles.appDeveloperNameText}>
+          style={[styles.appDeveloperNameText, {color: textColor}]}>
           Developed by Aurnab Paul
         </Animated.Text>
       </View>
